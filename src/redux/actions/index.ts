@@ -8,4 +8,16 @@ interface TurnDarkModeOff {
   type: ActionType.DARK_MODE_OFF;
 }
 
-export type Action = TurnDarkModeOn | TurnDarkModeOff;
+interface TurnMenuOn {
+  type: ActionType.MENU_ON;
+}
+
+interface TurnMenuOff {
+  type: ActionType.MENU_OFF;
+}
+
+export type Action =
+  | TurnDarkModeOn
+  | TurnDarkModeOff
+  | TurnMenuOn
+  | TurnMenuOff;
