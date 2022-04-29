@@ -14,6 +14,16 @@ const documentsReducer = (state: document[] = [], action: Action) => {
       return [...state, action.payload];
     case ActionType.DELETE_DOCUMENT:
       return state.filter((document) => document.id !== action.payload);
+    case ActionType.UPDATE_DOCUMENT_TITLE:
+      const documents = [...state];
+      const editedTitleDocument = documents.find((document) => {
+        return document.id === action.payload.id;
+      });
+      if (!editedTitleDocument) {
+        return state;
+      }
+      editedTitleDocument.name = action.payload.newTitle;
+      return documents;
     default:
       return state;
   }

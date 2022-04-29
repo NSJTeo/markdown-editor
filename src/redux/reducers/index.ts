@@ -3,14 +3,14 @@ import darkModeReducer from './darkModeReducer';
 import documentsReducer from './documentsReducer';
 import menuReducer from './menuReducer';
 import previewReducer from './previewReducer';
-import selectedDocumentReducer from './selectedDocumentReducer';
+import selectedDocumentIdReducer from './selectedDocumentIdReducer';
 
 const rootReducer = combineReducers({
   darkMode: darkModeReducer,
   menu: menuReducer,
   documents: documentsReducer,
   preview: previewReducer,
-  selectedDocument: selectedDocumentReducer,
+  selectedDocumentId: selectedDocumentIdReducer,
 });
 
 export default rootReducer;

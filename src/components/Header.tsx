@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import closeMenuIcon from '../assets/icons/icon-close.svg';
@@ -6,6 +6,7 @@ import documentIcon from '../assets/icons/icon-document.svg';
 import menuIcon from '../assets/icons/icon-menu.svg';
 import deleteIcon from '../assets/icons/icon-delete.svg';
 import saveIcon from '../assets/icons/icon-save.svg';
+import { useActions } from '../hooks/useActions';
 
 const Container = styled.header`
   display: flex;
@@ -84,18 +85,55 @@ const SaveIcon = styled.img`
   height: 1rem;
 `;
 
+interface Document {
+  id: number;
+  createdAt: string;
+  name: string;
+  content: string;
+}
+
 export default function Header() {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState('');
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [editedTitle, setEditedTitle] = useState<string>('');
+  const [selectedDocument, setSelectedDocument] = useState<null | Document>(
+    null
+  );
+  const { menu, selectedDocumentId, documents } = useTypedSelector(
+    (state) => state
+  );
+  const { updateDocumentTitle } = useActions();
 
   const inputRef = useRef(null);
 
-  const { menu } = useTypedSelector((state) => state);
   const menuState = menu ? (
     <CloseMenuIcon src={closeMenuIcon} alt="menu icon" />
   ) : (
     <MenuIcon src={menuIcon} alt="menu icon" />
   );
+
+  useEffect(() => {
+    const currentDocument = documents.find((document) => {
+      return document.id === selectedDocumentId;
+    });
+    setSelectedDocument(currentDocument || null);
+    setEditedTitle(selectedDocument?.name || '');
+  }, [selectedDocumentId, selectedDocument, documents]);
+
+  useEffect(() => {
+    const clickOff = (e: MouseEvent) => {
+      if (inputRef.current !== e.target) {
+        if (!editedTitle.trim() || !selectedDocumentId) {
+          return;
+        }
+        updateDocumentTitle(selectedDocumentId, editedTitle);
+        setIsEditing(false);
+      }
+    };
+    document.addEventListener('mousedown', clickOff);
+    return () => {
+      document.removeEventListener('mousedown', clickOff);
+    };
+  }, [inputRef, editedTitle, updateDocumentTitle, selectedDocumentId]);
 
   const editTitleElement = (
     <Form onSubmit={(e) => e.preventDefault()}>

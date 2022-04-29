@@ -14,7 +14,7 @@ export const addDocument = (
       payload: { id, createdAt, name, content },
     });
     dispatch({
-      type: ActionType.SELECT_DOCUMENT,
+      type: ActionType.SELECT_DOCUMENT_ID,
       payload: id,
     });
   };
@@ -22,4 +22,8 @@ export const addDocument = (
 
 export const deleteDocument = (id: number) => {
   return { type: ActionType.DELETE_DOCUMENT, payload: id };
+};
+
+export const updateDocumentTitle = (id: number, newTitle: string) => {
+  return { type: ActionType.UPDATE_DOCUMENT_TITLE, payload: { id, newTitle } };
 };

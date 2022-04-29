@@ -34,9 +34,14 @@ interface ClosePreview {
   type: ActionType.CLOSE_PREVIEW;
 }
 
-interface SelectDocument {
-  type: ActionType.SELECT_DOCUMENT;
+interface SelectDocumentId {
+  type: ActionType.SELECT_DOCUMENT_ID;
   payload: number;
+}
+
+interface UpdateDocumentTitle {
+  type: ActionType.UPDATE_DOCUMENT_TITLE;
+  payload: { id: number; newTitle: string };
 }
 
 export type Action =
@@ -48,4 +53,5 @@ export type Action =
   | DeleteDocument
   | OpenPreview
   | ClosePreview
-  | SelectDocument;
+  | SelectDocumentId
+  | UpdateDocumentTitle;
