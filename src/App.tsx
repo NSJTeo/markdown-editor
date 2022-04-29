@@ -1,15 +1,22 @@
+import styled from 'styled-components';
 import Header from './components/Header';
 import MarkdownEditor from './components/MarkdownEditor';
 import MarkdownPreview from './components/MarkdownPreview';
+import Menu from './components/Menu';
+
+const HeaderMainContainer = styled.div``;
 
 function App() {
   return (
     <>
-      <Header />
-      <main>
-        <MarkdownEditor />
-        <MarkdownPreview />
-      </main>
+      <Menu />
+      <HeaderMainContainer>
+        <Header />
+        <main>
+          <MarkdownEditor />
+          <MarkdownPreview />
+        </main>
+      </HeaderMainContainer>
     </>
   );
 }
