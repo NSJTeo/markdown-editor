@@ -34,6 +34,11 @@ interface ClosePreview {
   type: ActionType.CLOSE_PREVIEW;
 }
 
+interface SelectDocument {
+  type: ActionType.SELECT_DOCUMENT;
+  payload: number;
+}
+
 export type Action =
   | TurnDarkModeOn
   | TurnDarkModeOff
@@ -42,4 +47,5 @@ export type Action =
   | AddDocument
   | DeleteDocument
   | OpenPreview
-  | ClosePreview;
+  | ClosePreview
+  | SelectDocument;
