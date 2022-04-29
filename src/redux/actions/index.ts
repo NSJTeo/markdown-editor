@@ -26,10 +26,20 @@ interface DeleteDocument {
   payload: number;
 }
 
+interface OpenPreview {
+  type: ActionType.OPEN_PREVIEW;
+}
+
+interface ClosePreview {
+  type: ActionType.CLOSE_PREVIEW;
+}
+
 export type Action =
   | TurnDarkModeOn
   | TurnDarkModeOff
   | TurnMenuOn
   | TurnMenuOff
   | AddDocument
-  | DeleteDocument;
+  | DeleteDocument
+  | OpenPreview
+  | ClosePreview;
