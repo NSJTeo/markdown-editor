@@ -66,6 +66,11 @@ const Icons = styled.div`
   align-items: center;
 `;
 
+const DeleteButton = styled.button`
+  background: none;
+  border: none;
+`;
+
 const DeleteIcon = styled.img``;
 
 const SaveIconButton = styled.button`
@@ -101,7 +106,7 @@ export default function Header() {
   const { menu, selectedDocumentId, documents } = useTypedSelector(
     (state) => state
   );
-  const { updateDocumentTitle, menuOn, menuOff } = useActions();
+  const { updateDocumentTitle, menuOn, menuOff, deleteDocument } = useActions();
 
   const inputRef = useRef(null);
 
@@ -122,7 +127,6 @@ export default function Header() {
   useEffect(() => {
     const clickOff = (e: MouseEvent) => {
       if (inputRef.current !== e.target) {
-        console.log(editedTitle, selectedDocumentId);
         if (!editedTitle.trim()) {
           return;
         }
@@ -164,6 +168,13 @@ export default function Header() {
     }
   };
 
+  const handleDelete: React.MouseEventHandler<HTMLButtonElement> = () => {
+    if (selectedDocumentId === null) {
+      return;
+    }
+    deleteDocument(selectedDocumentId);
+  };
+
   return (
     <Container>
       <MenuIconButton onClick={handleClick}>{menuState}</MenuIconButton>
@@ -173,7 +184,9 @@ export default function Header() {
           {titleState}
         </File>
         <Icons>
-          <DeleteIcon src={deleteIcon} />
+          <DeleteButton onClick={handleDelete}>
+            <DeleteIcon src={deleteIcon} />
+          </DeleteButton>
           <SaveIconButton>
             <SaveIcon src={saveIcon} />
           </SaveIconButton>
