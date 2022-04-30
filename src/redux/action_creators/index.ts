@@ -5,6 +5,7 @@ export {
   deleteDocument,
   updateDocumentTitle,
   addDocuments,
+  editDocument,
 } from './documents';
 export { openPreview, closePreview } from './preview';
 export { selectDocumentId } from './selectedDocumentId';

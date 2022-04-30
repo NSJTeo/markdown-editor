@@ -56,6 +56,11 @@ interface AddDocuments {
   payload: Document[];
 }
 
+interface EditDocument {
+  type: ActionType.EDIT_DOCUMENT;
+  payload: { id: number; content: string };
+}
+
 export type Action =
   | TurnDarkModeOn
   | TurnDarkModeOff
@@ -67,4 +72,5 @@ export type Action =
   | ClosePreview
   | SelectDocumentId
   | UpdateDocumentTitle
-  | AddDocuments;
+  | AddDocuments
+  | EditDocument;

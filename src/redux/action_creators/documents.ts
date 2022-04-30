@@ -15,6 +15,10 @@ export const addDocument = (id: number) => {
   };
 };
 
+export const editDocument = (id: number, content: string) => {
+  return { type: ActionType.EDIT_DOCUMENT, payload: { id, content } };
+};
+
 export const deleteDocument = (id: number) => {
   return { type: ActionType.DELETE_DOCUMENT, payload: id };
 };
