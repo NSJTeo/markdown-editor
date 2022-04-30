@@ -2,16 +2,11 @@ import { ActionType } from '../action_types';
 import { Action } from '../actions';
 import { Dispatch } from 'redux';
 
-export const addDocument = (
-  id: number,
-  createdAt: string,
-  name: string,
-  content: string
-) => {
+export const addDocument = (id: number) => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.ADD_DOCUMENT,
-      payload: { id, createdAt, name, content },
+      payload: { id, createdAt: '', name: 'untitled.md', content: '' },
     });
     dispatch({
       type: ActionType.SELECT_DOCUMENT_ID,

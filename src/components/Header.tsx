@@ -85,7 +85,7 @@ const SaveIcon = styled.img`
   height: 1rem;
 `;
 
-interface Document {
+export interface Document {
   id: number;
   createdAt: string;
   name: string;
