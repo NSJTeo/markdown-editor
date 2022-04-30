@@ -122,7 +122,11 @@ export default function Header() {
   useEffect(() => {
     const clickOff = (e: MouseEvent) => {
       if (inputRef.current !== e.target) {
-        if (!editedTitle.trim() || !selectedDocumentId) {
+        console.log(editedTitle, selectedDocumentId);
+        if (!editedTitle.trim()) {
+          return;
+        }
+        if (selectedDocumentId === null) {
           return;
         }
         updateDocumentTitle(selectedDocumentId, editedTitle);
@@ -130,6 +134,7 @@ export default function Header() {
       }
     };
     document.addEventListener('mousedown', clickOff);
+
     return () => {
       document.removeEventListener('mousedown', clickOff);
     };
@@ -148,7 +153,7 @@ export default function Header() {
   const titleState = isEditing ? (
     editTitleElement
   ) : (
-    <Title onClick={() => setIsEditing(true)}></Title>
+    <Title onClick={() => setIsEditing(true)}>{selectedDocument?.name}</Title>
   );
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {

@@ -16,9 +16,16 @@ interface TurnMenuOff {
   type: ActionType.MENU_OFF;
 }
 
+interface Document {
+  id: number;
+  createdAt: string;
+  name: string;
+  content: string;
+}
+
 interface AddDocument {
   type: ActionType.ADD_DOCUMENT;
-  payload: { id: number; createdAt: string; name: string; content: string };
+  payload: Document;
 }
 
 interface DeleteDocument {
@@ -44,6 +51,11 @@ interface UpdateDocumentTitle {
   payload: { id: number; newTitle: string };
 }
 
+interface AddDocuments {
+  type: ActionType.ADD_DOCUMENTS;
+  payload: Document[];
+}
+
 export type Action =
   | TurnDarkModeOn
   | TurnDarkModeOff
@@ -54,4 +66,5 @@ export type Action =
   | OpenPreview
   | ClosePreview
   | SelectDocumentId
-  | UpdateDocumentTitle;
+  | UpdateDocumentTitle
+  | AddDocuments;

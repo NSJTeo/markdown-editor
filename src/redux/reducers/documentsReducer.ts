@@ -10,6 +10,8 @@ interface document {
 
 const documentsReducer = (state: document[] = [], action: Action) => {
   switch (action.type) {
+    case ActionType.ADD_DOCUMENTS:
+      return [...action.payload];
     case ActionType.ADD_DOCUMENT:
       return [...state, action.payload];
     case ActionType.DELETE_DOCUMENT:

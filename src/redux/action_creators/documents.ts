@@ -22,3 +22,14 @@ export const deleteDocument = (id: number) => {
 export const updateDocumentTitle = (id: number, newTitle: string) => {
   return { type: ActionType.UPDATE_DOCUMENT_TITLE, payload: { id, newTitle } };
 };
+
+interface Document {
+  id: number;
+  createdAt: string;
+  name: string;
+  content: string;
+}
+
+export const addDocuments = (documents: Document[]) => {
+  return { type: ActionType.ADD_DOCUMENTS, payload: documents };
+};
