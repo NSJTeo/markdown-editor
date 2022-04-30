@@ -67,7 +67,7 @@ export default function MarkdownEditor() {
   const { preview, selectedDocumentId, documents } = useTypedSelector(
     (state) => state
   );
-  const { closePreview, editDocument } = useActions();
+  const { openPreview, editDocument } = useActions();
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(
     null
   );
@@ -90,7 +90,7 @@ export default function MarkdownEditor() {
     <FullContainer preview={preview}>
       <TitleContainer>
         <Title>MARKDOWN</Title>
-        <IconButton onClick={() => closePreview()}>
+        <IconButton onClick={() => openPreview()}>
           <Icon src={showPreviewIcon} alt="hide preview icon" />
         </IconButton>
       </TitleContainer>
