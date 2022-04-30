@@ -85,7 +85,7 @@ const SaveIcon = styled.img`
   height: 1rem;
 `;
 
-export interface Document {
+interface Document {
   id: number;
   createdAt: string;
   name: string;
@@ -101,7 +101,7 @@ export default function Header() {
   const { menu, selectedDocumentId, documents } = useTypedSelector(
     (state) => state
   );
-  const { updateDocumentTitle } = useActions();
+  const { updateDocumentTitle, menuOn, menuOff } = useActions();
 
   const inputRef = useRef(null);
 
@@ -151,11 +151,17 @@ export default function Header() {
     <Title onClick={() => setIsEditing(true)}></Title>
   );
 
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    if (menu) {
+      menuOff();
+    } else {
+      menuOn();
+    }
+  };
+
   return (
     <Container>
-      <MenuIconButton onClick={(e) => e.preventDefault()}>
-        {menuState}
-      </MenuIconButton>
+      <MenuIconButton onClick={handleClick}>{menuState}</MenuIconButton>
       <SelectedDocument>
         <File>
           <FileIcon src={documentIcon} />
