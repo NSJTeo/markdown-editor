@@ -26,6 +26,7 @@ const Title = styled.h2`
 `;
 
 const SubTitle = styled.h3`
+  font-family: 'Roboto Medium';
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -40,6 +41,7 @@ const NewDocumentButton = styled.button`
   color: white;
   border: none;
   width: 100%;
+  font-family: 'Roboto Regular';
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;

@@ -20,7 +20,7 @@ const Icon = styled.img`
 `;
 
 const Preview = styled.div`
-  padding: 1rem;
+  padding: 20px;
   font-family: 'Roboto Slab Regular';
   h1 {
     font-family: 'Roboto Slab Bold';
@@ -126,6 +126,9 @@ const Preview = styled.div`
     color: #35393f;
     margin-bottom: 0;
   }
+  a {
+    color: #35393f;
+  }
 `;
 
 interface Document {
@@ -166,7 +169,7 @@ export default function MarkdownPreview() {
   return (
     <FullContainer preview={preview}>
       <TitleContainer>
-        <Title>MARKDOWN</Title>
+        <Title>PREVIEW</Title>
         <IconButton onClick={() => closePreview()}>
           <Icon src={hidePreviewIcon} alt="hide preview icon" />
         </IconButton>

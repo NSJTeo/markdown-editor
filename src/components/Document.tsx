@@ -17,6 +17,7 @@ const Info = styled.div`
 `;
 
 const Date = styled.p`
+  font-family: 'Roboto Light';
   font-weight: 300;
   font-size: 13px;
   line-height: 15px;
@@ -26,6 +27,7 @@ const Date = styled.p`
 `;
 
 const Title = styled.p`
+  font-family: 'Roboto Regular';
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;

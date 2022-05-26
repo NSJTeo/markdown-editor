@@ -50,6 +50,7 @@ const File = styled.div`
 const FileIcon = styled.img``;
 
 const Title = styled.h2`
+  font-family: 'Roboto Regular';
   font-weight: 400;
   size: 15px;
   line-height: 17.58px;
