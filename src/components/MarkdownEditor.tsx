@@ -46,7 +46,7 @@ export default function MarkdownEditor() {
 
   useEffect(() => {
     if (!textAreaRef.current) return;
-    textAreaRef.current.style.height = '0px';
+    textAreaRef.current.style.height = 'calc(100vh - 110px)';
     textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
   }, [textAreaRef.current?.scrollHeight, selectedDocument, preview]);
 
