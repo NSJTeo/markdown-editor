@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { TitleContainer, Title, IconButton } from './MarkdownEditor';
 import hidePreviewIcon from '../assets/icons/icon-hide-preview.svg';
 import { useActions } from '../hooks/useActions';
 import { marked } from 'marked';
 import { useEffect, useState } from 'react';
+import { TitleContainer, Title, IconButton } from '../styles';
 
 interface PreviewProps {
   preview: boolean;

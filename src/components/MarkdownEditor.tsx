@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import showPreviewIcon from '../assets/icons/icon-show-preview.svg';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-
-interface PreviewProps {
-  preview: boolean;
-}
+import {
+  FullContainer,
+  TitleContainer,
+  Title,
+  Icon,
+  IconButton,
+} from '../styles';
 
 interface Document {
   id: number;
@@ -14,33 +17,6 @@ interface Document {
   name: string;
   content: string;
 }
-
-const FullContainer = styled.div<PreviewProps>`
-  display: ${({ preview }) => (preview ? 'none' : 'block')};
-`;
-
-export const TitleContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 1rem;
-  padding-right: 15.8px;
-  height: 42px;
-  background-color: #f5f5f5;
-`;
-
-export const Title = styled.h2`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 2px;
-  color: #7c8187;
-`;
-
-const Icon = styled.img`
-  width: 1rem;
-  height: 11.2px;
-`;
 
 const Editor = styled.textarea`
   resize: none;
@@ -58,19 +34,22 @@ const Editor = styled.textarea`
   }
 `;
 
-export const IconButton = styled.button`
-  background: none;
-  border: none;
-`;
-
 export default function MarkdownEditor() {
   const { preview, selectedDocumentId, documents } = useTypedSelector(
     (state) => state
   );
-  const { openPreview, editDocument } = useActions();
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(
     null
   );
+  const { openPreview, editDocument } = useActions();
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (!textAreaRef.current) return;
+    console.log(textAreaRef.current.innerText);
+    textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+    console.log(textAreaRef.current?.scrollHeight);
+  }, [textAreaRef.current?.scrollHeight, selectedDocumentId]);
 
   useEffect(() => {
     const currentDocument = documents.find((document) => {
@@ -80,7 +59,7 @@ export default function MarkdownEditor() {
   }, [documents, selectedDocumentId]);
 
   const handleChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    if (!selectedDocumentId) {
+    if (selectedDocumentId === null) {
       return;
     }
     editDocument(selectedDocumentId, e.target.value);
@@ -94,7 +73,11 @@ export default function MarkdownEditor() {
           <Icon src={showPreviewIcon} alt="hide preview icon" />
         </IconButton>
       </TitleContainer>
-      <Editor value={selectedDocument?.content || ''} onChange={handleChange} />
+      <Editor
+        value={selectedDocument?.content || ''}
+        onChange={handleChange}
+        ref={textAreaRef}
+      />
     </FullContainer>
   );
 }
