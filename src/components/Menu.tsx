@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import Document from './Document';
+import SelectDocumentButton from './SelectDocumentButton';
 import ModeSelector from './ModeSelector';
 
 const MenuContainer = styled.div`
@@ -47,13 +47,14 @@ const NewDocumentButton = styled.button`
   line-height: 18px;
   padding: 11px;
   margin-bottom: 24px;
+  cursor: pointer;
 `;
 
 function Menu() {
   const { documents } = useTypedSelector((state) => state);
   const { addDocument } = useActions();
   const DocumentElements = documents.map((document) => {
-    return <Document key={document.id} document={document} />;
+    return <SelectDocumentButton key={document.id} document={document} />;
   });
   return (
     <MenuContainer>

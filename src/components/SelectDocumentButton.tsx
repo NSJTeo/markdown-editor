@@ -8,6 +8,7 @@ const DocumentSelector = styled.button`
   border: none;
   align-items: center;
   margin-bottom: 26px;
+  cursor: pointer;
 `;
 
 const Icon = styled.img``;
@@ -46,7 +47,7 @@ type Props = {
   document: DocumentType;
 };
 
-function Document({ document }: Props) {
+function SelectDocumentButton({ document }: Props) {
   const { selectDocumentId } = useActions();
 
   return (
@@ -60,4 +61,4 @@ function Document({ document }: Props) {
   );
 }
 
-export default Document;
+export default SelectDocumentButton;

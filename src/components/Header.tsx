@@ -13,6 +13,7 @@ const Container = styled.header`
 `;
 
 const MenuIconButton = styled.button`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,6 +71,7 @@ const Icons = styled.div`
 const DeleteButton = styled.button`
   background: none;
   border: none;
+  cursor: pointer;
 `;
 
 const DeleteIcon = styled.img``;
@@ -84,6 +86,7 @@ const SaveIconButton = styled.button`
   border: none;
   border-radius: 4px;
   margin-left: 24px;
+  cursor: pointer;
 `;
 
 const SaveIcon = styled.img`
