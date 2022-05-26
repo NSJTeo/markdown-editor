@@ -46,10 +46,9 @@ export default function MarkdownEditor() {
 
   useEffect(() => {
     if (!textAreaRef.current) return;
-    console.log(textAreaRef.current.innerText);
+    textAreaRef.current.style.height = '0px';
     textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
-    console.log(textAreaRef.current?.scrollHeight);
-  }, [textAreaRef.current?.scrollHeight, selectedDocumentId]);
+  }, [textAreaRef.current?.scrollHeight, selectedDocument, preview]);
 
   useEffect(() => {
     const currentDocument = documents.find((document) => {
