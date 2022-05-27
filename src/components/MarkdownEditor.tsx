@@ -28,7 +28,8 @@ const Editor = styled.textarea`
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: #35393f;
+  color: ${({ theme }) => theme.markdownTextColour};
+  background: ${({ theme }) => theme.bodyBackground};
   &:focus {
     outline: none;
   }

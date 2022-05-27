@@ -6,5 +6,5 @@ export const Title = styled.h2`
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 2px;
-  color: #7c8187;
+  color: ${({ theme }) => theme.viewSelectHeader};
 `;

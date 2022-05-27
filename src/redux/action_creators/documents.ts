@@ -38,10 +38,10 @@ export const deleteDocument = (id: number) => {
     dispatch({
       type: ActionType.DELETE_MODAL_OFF,
     });
-    // dispatch({
-    //   type: ActionType.SELECT_DOCUMENT_ID,
-    //   payload: null,
-    // });
+    dispatch({
+      type: ActionType.SELECT_DOCUMENT_ID,
+      payload: null,
+    });
   };
 };
 

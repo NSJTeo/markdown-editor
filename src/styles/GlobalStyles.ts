@@ -14,7 +14,11 @@ import RobotoLightWoff from '../assets/fonts/Roboto-Light.woff';
 import CommissionerBoldWoff2 from '../assets/fonts/Commissioner-Bold.woff2';
 import CommissionerBoldWoff from '../assets/fonts/Commissioner-Bold.woff';
 
-export const GlobalStyles = createGlobalStyle`
+type GlobalStylesProps = {
+  darkMode: boolean;
+};
+
+export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
   @font-face {
     font-family: "Roboto Slab Bold";
     src: url(${RobotoSlabBoldWoff2}) format("woff2"),
@@ -70,5 +74,9 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     overflow-x: hidden;
+  }
+
+  html {
+    background: ${({ darkMode }) => (darkMode ? '#151619' : '#FFF')};
   }
 `;

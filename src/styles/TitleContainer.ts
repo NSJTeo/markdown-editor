@@ -7,5 +7,5 @@ export const TitleContainer = styled.div`
   padding-left: 1rem;
   padding-right: 15.8px;
   height: 42px;
-  background-color: #f5f5f5;
+  background-color: ${({ theme }) => theme.viewSelectBackground};
 `;
