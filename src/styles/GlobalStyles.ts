@@ -13,6 +13,8 @@ import RobotoLightWoff2 from '../assets/fonts/Roboto-Light.woff2';
 import RobotoLightWoff from '../assets/fonts/Roboto-Light.woff';
 import CommissionerBoldWoff2 from '../assets/fonts/Commissioner-Bold.woff2';
 import CommissionerBoldWoff from '../assets/fonts/Commissioner-Bold.woff';
+import RobotoMonoRegularWoff2 from '../assets/fonts/RobotoMono-Regular.woff2';
+import RobotoMonoRegularWoff from '../assets/fonts/RobotoMono-Regular.woff';
 
 type GlobalStylesProps = {
   darkMode: boolean;
@@ -65,7 +67,14 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
     font-family: "Commissioner Bold";
     src: url(${CommissionerBoldWoff2}) format("woff2"),
       url(${CommissionerBoldWoff}) format("woff");
-    font-weight: 300;
+    font-weight: 700;
+    font-style: normal; 
+  }
+  @font-face {
+    font-family: "Roboto Mono Regular";
+    src: url(${RobotoMonoRegularWoff2}) format("woff2"),
+      url(${RobotoMonoRegularWoff}) format("woff");
+    font-weight: 400;
     font-style: normal; 
   }
 

@@ -25,6 +25,7 @@ const Editor = styled.textarea`
   padding: 1rem;
   padding-bottom: 12px;
   /* text */
+  font-family: 'Roboto Mono Regular';
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
