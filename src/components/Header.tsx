@@ -173,10 +173,7 @@ export default function Header() {
   };
 
   const handleDelete: React.MouseEventHandler<HTMLButtonElement> = () => {
-    // if (selectedDocumentId === null) {
-    //   return;
-    // }
-    // deleteDocument(selectedDocumentId);
+    if (selectedDocumentId === null) return;
     deleteModalOn();
   };
 

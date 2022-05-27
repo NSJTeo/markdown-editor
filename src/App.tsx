@@ -33,7 +33,7 @@ const HeaderMask = styled.div`
 `;
 
 function App() {
-  const { menu } = useTypedSelector((state) => state);
+  const { menu, deleteModal } = useTypedSelector((state) => state);
   const { addDocuments } = useActions();
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <AppContainer>
-      <DeleteModal />
+      {deleteModal && <DeleteModal />}
       <HeaderMask />
       <Menu />
       <HeaderMainContainer menu={menu}>
