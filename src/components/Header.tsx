@@ -10,6 +10,7 @@ import { useActions } from '../hooks/useActions';
 
 const Container = styled.header`
   display: flex;
+  min-width: 375px;
 `;
 
 const MenuIconButton = styled.button`
