@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import { useTypedSelector } from './hooks/useTypedSelector';
 import { useActions } from './hooks/useActions';
 import documents from './assets/json/documents.json';
+import DeleteModal from './components/DeleteModal';
 
 type HeaderMainContainerProps = {
   menu: boolean;
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <AppContainer>
+      <DeleteModal />
       <HeaderMask />
       <Menu />
       <HeaderMainContainer menu={menu}>

@@ -61,11 +61,11 @@ interface EditDocument {
   payload: { id: number; content: string };
 }
 
-interface TurnModalOn {
+interface DeleteModalOn {
   type: ActionType.DELETE_MODAL_ON;
 }
 
-interface TurnModalOff {
+interface DeleteModalOff {
   type: ActionType.DELETE_MODAL_OFF;
 }
 
@@ -82,5 +82,5 @@ export type Action =
   | UpdateDocumentTitle
   | AddDocuments
   | EditDocument
-  | TurnModalOff
-  | TurnModalOn;
+  | DeleteModalOn
+  | DeleteModalOff;

@@ -9,3 +9,4 @@ export {
 } from './documents';
 export { openPreview, closePreview } from './preview';
 export { selectDocumentId } from './selectedDocumentId';
+export { deleteModalOn, deleteModalOff } from './deleteModal';

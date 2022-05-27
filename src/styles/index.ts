@@ -4,3 +4,8 @@ export { Title } from './Title';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
 export { GlobalStyles } from './GlobalStyles';
+export { DeleteModalContainer } from './DeleteModalContainer';
+export { DeleteModalBody } from './DeleteModalBody';
+export { DeleteModalHeader } from './DeleteModalHeader';
+export { DeleteModalText } from './DeleteModalText';
+export { DeleteModalButton } from './DeleteModalButton';

@@ -68,7 +68,7 @@ const Icons = styled.div`
   align-items: center;
 `;
 
-const DeleteButton = styled.button`
+const DeleteModalButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
@@ -110,7 +110,7 @@ export default function Header() {
   const { menu, selectedDocumentId, documents } = useTypedSelector(
     (state) => state
   );
-  const { updateDocumentTitle, menuOn, menuOff, deleteDocument } = useActions();
+  const { updateDocumentTitle, menuOn, menuOff, deleteModalOn } = useActions();
 
   const inputRef = useRef(null);
 
@@ -173,10 +173,11 @@ export default function Header() {
   };
 
   const handleDelete: React.MouseEventHandler<HTMLButtonElement> = () => {
-    if (selectedDocumentId === null) {
-      return;
-    }
-    deleteDocument(selectedDocumentId);
+    // if (selectedDocumentId === null) {
+    //   return;
+    // }
+    // deleteDocument(selectedDocumentId);
+    deleteModalOn();
   };
 
   return (
@@ -188,9 +189,9 @@ export default function Header() {
           {titleState}
         </File>
         <Icons>
-          <DeleteButton onClick={handleDelete}>
+          <DeleteModalButton onClick={handleDelete}>
             <DeleteIcon src={deleteIcon} />
-          </DeleteButton>
+          </DeleteModalButton>
           <SaveIconButton>
             <SaveIcon src={saveIcon} />
           </SaveIconButton>
