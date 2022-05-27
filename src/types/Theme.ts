@@ -10,4 +10,7 @@ export type Theme = {
   linkColour: '#35393f' | '#FFF';
   modeSelectPosition: '' | 'flex-end';
   markdownTextColour: '#35393F' | '#C1C4CB';
+  deleteModalHeader: '#35393F' | '#FFF';
+  deleteModalText: '#7C8187' | '#C1C4CB';
+  deleteModalBackground: '#FFF' | '#1D1F22';
 };

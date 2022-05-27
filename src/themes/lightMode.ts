@@ -12,4 +12,7 @@ export const lightMode: Theme = {
   linkColour: '#35393f',
   modeSelectPosition: 'flex-end',
   markdownTextColour: '#35393F',
+  deleteModalHeader: '#35393F',
+  deleteModalText: '#7C8187',
+  deleteModalBackground: '#FFF',
 };

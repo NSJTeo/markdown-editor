@@ -1,7 +1,7 @@
 import { Action } from '../actions';
 import { ActionType } from '../action_types';
 
-const menuReducer = (state = false, action: Action) => {
+const menuReducer = (state = true, action: Action) => {
   switch (action.type) {
     case ActionType.MENU_OFF:
       return false;

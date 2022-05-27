@@ -6,6 +6,6 @@ export const DeleteModalText = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: #7c8187;
+  color: ${({ theme }) => theme.deleteModalText};
   margin-bottom: 1rem;
 `;

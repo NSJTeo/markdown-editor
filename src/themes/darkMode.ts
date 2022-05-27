@@ -12,4 +12,7 @@ export const darkMode: Theme = {
   linkColour: '#FFF',
   modeSelectPosition: '',
   markdownTextColour: '#C1C4CB',
+  deleteModalHeader: '#FFF',
+  deleteModalText: '#C1C4CB',
+  deleteModalBackground: '#1D1F22',
 };

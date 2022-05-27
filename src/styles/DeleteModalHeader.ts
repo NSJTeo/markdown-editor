@@ -6,6 +6,6 @@ export const DeleteModalHeader = styled.h3`
   font-weight: 700;
   font-size: 20px;
   line-height: 26px;
-  color: #35393f;
+  color: ${({ theme }) => theme.deleteModalHeader};
   margin-bottom: 1rem;
 `;
