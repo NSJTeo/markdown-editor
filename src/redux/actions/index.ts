@@ -43,7 +43,7 @@ interface ClosePreview {
 
 interface SelectDocumentId {
   type: ActionType.SELECT_DOCUMENT_ID;
-  payload: number;
+  payload: number | null;
 }
 
 interface UpdateDocumentTitle {

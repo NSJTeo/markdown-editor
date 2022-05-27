@@ -70,7 +70,7 @@ function Menu() {
         <SubTitle>MY DOCUMENTS</SubTitle>
         <NewDocumentButton
           onClick={() => {
-            addDocument(documents.length);
+            addDocument(documents.length + 1);
           }}
         >
           + New Document

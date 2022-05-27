@@ -6,7 +6,7 @@ import MarkdownPreview from './components/MarkdownPreview';
 import Menu from './components/Menu';
 import { useTypedSelector } from './hooks/useTypedSelector';
 import { useActions } from './hooks/useActions';
-import documents from './assets/json/documents.json';
+import defaultDocuments from './assets/json/documents.json';
 import DeleteModal from './components/DeleteModal';
 
 type HeaderMainContainerProps = {
@@ -33,11 +33,13 @@ const HeaderMask = styled.div`
 `;
 
 function App() {
-  const { menu, deleteModal } = useTypedSelector((state) => state);
+  const { menu, deleteModal, selectedDocumentId } = useTypedSelector(
+    (state) => state
+  );
   const { addDocuments } = useActions();
 
   useEffect(() => {
-    addDocuments(documents);
+    addDocuments(defaultDocuments);
   }, []);
 
   return (
@@ -47,10 +49,12 @@ function App() {
       <Menu />
       <HeaderMainContainer menu={menu}>
         <Header />
-        <main>
-          <MarkdownEditor />
-          <MarkdownPreview />
-        </main>
+        {selectedDocumentId && (
+          <main>
+            <MarkdownEditor />
+            <MarkdownPreview />
+          </main>
+        )}
       </HeaderMainContainer>
     </AppContainer>
   );

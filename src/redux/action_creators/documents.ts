@@ -1,12 +1,22 @@
 import { ActionType } from '../action_types';
 import { Action } from '../actions';
 import { Dispatch } from 'redux';
+import { getMonth } from '../../utils';
 
 export const addDocument = (id: number) => {
   return (dispatch: Dispatch<Action>) => {
+    const currentDate = new Date();
+    const date = currentDate.getDate();
+    const month = getMonth(currentDate.getMonth());
+    const year = currentDate.getFullYear();
     dispatch({
       type: ActionType.ADD_DOCUMENT,
-      payload: { id, createdAt: '', name: 'untitled.md', content: '' },
+      payload: {
+        id,
+        createdAt: `${date} ${month} ${year}`,
+        name: 'untitled.md',
+        content: '',
+      },
     });
     dispatch({
       type: ActionType.SELECT_DOCUMENT_ID,
@@ -20,7 +30,19 @@ export const editDocument = (id: number, content: string) => {
 };
 
 export const deleteDocument = (id: number) => {
-  return { type: ActionType.DELETE_DOCUMENT, payload: id };
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.DELETE_DOCUMENT,
+      payload: id,
+    });
+    dispatch({
+      type: ActionType.DELETE_MODAL_OFF,
+    });
+    // dispatch({
+    //   type: ActionType.SELECT_DOCUMENT_ID,
+    //   payload: null,
+    // });
+  };
 };
 
 export const updateDocumentTitle = (id: number, newTitle: string) => {
