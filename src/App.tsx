@@ -26,7 +26,7 @@ const AppContainer = styled.div`
 
 const HeaderMask = styled.div`
   position: absolute;
-  background: black;
+  background: #35393f;
   width: 100vw;
   height: 56px; ;
 `;
