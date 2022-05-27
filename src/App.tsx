@@ -24,6 +24,13 @@ const AppContainer = styled.div`
   display: flex;
 `;
 
+const HeaderMask = styled.div`
+  position: absolute;
+  background: black;
+  width: 100vw;
+  height: 56px; ;
+`;
+
 function App() {
   const { menu } = useTypedSelector((state) => state);
   const { addDocuments } = useActions();
@@ -34,6 +41,7 @@ function App() {
 
   return (
     <AppContainer>
+      <HeaderMask />
       <Menu />
       <HeaderMainContainer menu={menu}>
         <Header />
