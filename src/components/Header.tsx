@@ -17,7 +17,7 @@ const MenuIconButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
+  min-width: 56px;
   height: 56px;
   background: #35393f;
   border: none;

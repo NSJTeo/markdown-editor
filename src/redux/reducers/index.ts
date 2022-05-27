@@ -4,6 +4,7 @@ import documentsReducer from './documentsReducer';
 import menuReducer from './menuReducer';
 import previewReducer from './previewReducer';
 import selectedDocumentIdReducer from './selectedDocumentIdReducer';
+import deleteModalReducer from './deleteModalReducer';
 
 const rootReducer = combineReducers({
   darkMode: darkModeReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   documents: documentsReducer,
   preview: previewReducer,
   selectedDocumentId: selectedDocumentIdReducer,
+  deleteModal: deleteModalReducer,
 });
 
 export default rootReducer;

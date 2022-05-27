@@ -61,6 +61,14 @@ interface EditDocument {
   payload: { id: number; content: string };
 }
 
+interface TurnModalOn {
+  type: ActionType.DELETE_MODAL_ON;
+}
+
+interface TurnModalOff {
+  type: ActionType.DELETE_MODAL_OFF;
+}
+
 export type Action =
   | TurnDarkModeOn
   | TurnDarkModeOff
@@ -73,4 +81,6 @@ export type Action =
   | SelectDocumentId
   | UpdateDocumentTitle
   | AddDocuments
-  | EditDocument;
+  | EditDocument
+  | TurnModalOff
+  | TurnModalOn;
