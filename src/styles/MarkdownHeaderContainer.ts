@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TitleContainer = styled.div`
+export const MarkdownHeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

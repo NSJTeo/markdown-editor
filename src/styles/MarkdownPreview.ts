@@ -1,25 +1,6 @@
 import styled from 'styled-components';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import hidePreviewIcon from '../assets/icons/icon-hide-preview.svg';
-import { useActions } from '../hooks/useActions';
-import { marked } from 'marked';
-import { useEffect, useState } from 'react';
-import { TitleContainer, Title, IconButton } from '../styles';
 
-interface PreviewProps {
-  preview: boolean;
-}
-
-const FullContainer = styled.div<PreviewProps>`
-  display: ${({ preview }) => (preview ? 'block' : 'none')};
-`;
-
-const Icon = styled.img`
-  width: 15.86px;
-  height: 14.26px;
-`;
-
-const Preview = styled.div`
+export const MarkdownPreview = styled.div`
   padding: 20px;
   font-family: 'Roboto Slab Regular';
   background: ${({ theme }) => theme.bodyBackground};
@@ -133,51 +114,3 @@ const Preview = styled.div`
     color: ${({ theme }) => theme.linkColour};
   }
 `;
-
-interface Document {
-  id: number;
-  createdAt: string;
-  name: string;
-  content: string;
-}
-
-export default function MarkdownPreview() {
-  const { preview, selectedDocumentId, documents } = useTypedSelector(
-    (state) => state
-  );
-  const { closePreview } = useActions();
-  const [selectedDocument, setSelectedDocument] = useState<null | Document>(
-    null
-  );
-  const markdownText = marked.parse(selectedDocument?.content || '');
-
-  useEffect(() => {
-    const currentDocument = documents.find((document) => {
-      return document.id === selectedDocumentId;
-    });
-    if (!currentDocument) {
-      return;
-    }
-    setSelectedDocument(currentDocument);
-  }, [documents, selectedDocumentId]);
-
-  function createMarkup() {
-    return { __html: markdownText };
-  }
-
-  function MyComponent() {
-    return <Preview dangerouslySetInnerHTML={createMarkup()} />;
-  }
-
-  return (
-    <FullContainer preview={preview}>
-      <TitleContainer>
-        <Title>PREVIEW</Title>
-        <IconButton onClick={() => closePreview()}>
-          <Icon src={hidePreviewIcon} alt="hide preview icon" />
-        </IconButton>
-      </TitleContainer>
-      {MyComponent()}
-    </FullContainer>
-  );
-}

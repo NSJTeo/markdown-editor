@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const IconButton = styled.button`
+export const MarkdownPreviewButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;

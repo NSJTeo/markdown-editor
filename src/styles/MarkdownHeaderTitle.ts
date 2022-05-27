@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Title = styled.h2`
+export const MarkdownHeaderTitle = styled.h3`
   font-family: 'Roboto Medium';
   font-weight: 500;
   font-size: 14px;
