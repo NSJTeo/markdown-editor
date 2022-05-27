@@ -30,6 +30,7 @@ const Title = styled.h2`
   letter-spacing: 5px;
   color: #ffffff;
   margin-bottom: 27px;
+  font-family: 'Commissioner Bold';
 `;
 
 const SubTitle = styled.h3`

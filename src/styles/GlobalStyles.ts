@@ -11,6 +11,8 @@ import RobotoRegularWoff2 from '../assets/fonts/Roboto-Regular.woff2';
 import RobotoRegularWoff from '../assets/fonts/Roboto-Regular.woff';
 import RobotoLightWoff2 from '../assets/fonts/Roboto-Light.woff2';
 import RobotoLightWoff from '../assets/fonts/Roboto-Light.woff';
+import CommissionerBoldWoff2 from '../assets/fonts/Commissioner-Bold.woff2';
+import CommissionerBoldWoff from '../assets/fonts/Commissioner-Bold.woff';
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -52,6 +54,13 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Roboto Light";
     src: url(${RobotoLightWoff2}) format("woff2"),
       url(${RobotoLightWoff}) format("woff");
+    font-weight: 300;
+    font-style: normal; 
+  }
+  @font-face {
+    font-family: "Commissioner Bold";
+    src: url(${CommissionerBoldWoff2}) format("woff2"),
+      url(${CommissionerBoldWoff}) format("woff");
     font-weight: 300;
     font-style: normal; 
   }
