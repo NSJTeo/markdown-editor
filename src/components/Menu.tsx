@@ -4,8 +4,12 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import SelectDocumentButton from './SelectDocumentButton';
 import ModeSelector from './ModeSelector';
 
-const MenuContainer = styled.div`
-  /* position: fixed; */
+type MenuContainerProps = {
+  menu: boolean;
+};
+
+const MenuContainer = styled.div<MenuContainerProps>`
+  position: fixed;
   height: 100vh;
   min-width: 250px;
   background: #1d1f22;
@@ -14,6 +18,9 @@ const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transform: translateX(-250px);
+  ${({ menu }) => (menu ? 'transform: translateX(0px);' : '')}
+  transition: transform 0.5s;
 `;
 
 const Title = styled.h2`
@@ -51,13 +58,13 @@ const NewDocumentButton = styled.button`
 `;
 
 function Menu() {
-  const { documents } = useTypedSelector((state) => state);
+  const { documents, menu } = useTypedSelector((state) => state);
   const { addDocument } = useActions();
   const DocumentElements = documents.map((document) => {
     return <SelectDocumentButton key={document.id} document={document} />;
   });
   return (
-    <MenuContainer>
+    <MenuContainer menu={menu}>
       <div>
         <Title>MARKDOWN</Title>
         <SubTitle>MY DOCUMENTS</SubTitle>

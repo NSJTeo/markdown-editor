@@ -8,8 +8,16 @@ import { useTypedSelector } from './hooks/useTypedSelector';
 import { useActions } from './hooks/useActions';
 import documents from './assets/json/documents.json';
 
-const HeaderMainContainer = styled.div`
-  width: 100%;
+type HeaderMainContainerProps = {
+  menu: boolean;
+};
+
+const HeaderMainContainer = styled.div<HeaderMainContainerProps>`
+  position: absolute;
+  right: 0;
+  left: 0;
+  ${({ menu }) => (menu ? 'left: 250px;' : '')}
+  transition: left 0.5s;
 `;
 
 const AppContainer = styled.div`
@@ -26,8 +34,8 @@ function App() {
 
   return (
     <AppContainer>
-      {menu && <Menu />}
-      <HeaderMainContainer>
+      <Menu />
+      <HeaderMainContainer menu={menu}>
         <Header />
         <main>
           <MarkdownEditor />

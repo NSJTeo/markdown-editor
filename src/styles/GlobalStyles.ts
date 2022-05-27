@@ -61,4 +61,8 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+
+  html {
+    background: black;
+  }
 `;
